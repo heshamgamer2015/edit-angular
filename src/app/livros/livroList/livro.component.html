@@ -1,0 +1,72 @@
+  <div class="d-flex justify-content-center">
+    <h2>Lista de Livros</h2>
+  </div>
+  <div class="d-flex flex-row-reverse botao">
+    <button (click)="abrirModal(abc)" class="btn btn-light bg-success bg-gradient text-white">Novo Livro</button>
+  </div>
+  <div class="container">
+  <table class="table table-bordered">
+    <tr>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Ação</th>
+    </tr>
+  
+    <tr *ngFor="let livro of livros; let i = index">
+        <td>
+            {{livro.titulo}}
+        </td>
+        <td>
+            {{livro.autor}}
+        </td>
+        <td>
+          <button (click)="abrirModalEditar(livro)" class="btn btn-primary btn-sm">Editar</button>
+        </td>
+    </tr>
+  </table>
+  </div>
+  
+  
+  <ng-template #abc let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Cadastrar Livro</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    
+        <app-livro-cadastrar (retorno)="addNaLista($event)" ></app-livro-cadastrar>
+            
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+  </ng-template>
+
+
+
+
+
+
+
+
+  <ng-template #abcEditar let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Editar Livro</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-3">
+        <span class="form-label">Titulo:</span>
+        <input class="form-control" type="text" [(ngModel)]="livroParaEditar.titulo" />
+      </div>
+  
+      <div class="mb-3">
+        <span class="form-label">Autor:</span>
+        <input class="form-control" type="text" [(ngModel)]="livroParaEditar.autor" />
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" (click)="salvarEdicao()">Salvar</button>
+      <button type="button" class="btn btn-light" (click)="modal.dismiss('Close click')">Cancelar</button>
+    </div>
+  </ng-template>

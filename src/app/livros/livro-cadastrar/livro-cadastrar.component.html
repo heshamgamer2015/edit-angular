@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-evenly">
+    <div class="mb-3">
+        <span class="form-label">Título:</span>
+        <input class="form-control" type="text" [(ngModel)]="livro.titulo"/>
+    </div>
+
+    <div class="mb-3">
+        <span class="form-label">Autor:</span>
+        <input class="form-control" type="text" [(ngModel)]="livro.autor" />
+    </div>
+</div>
+<div class="d-grid gap-2 col-2 mx-auto">
+    <button (click)="salvar()" class="btn btn-success">Salvar</button>
+</div>

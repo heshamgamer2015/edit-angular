@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-evenly">
+    <div class="mb-3">
+        <span class="form-label">Nome:</span>
+        <input class="form-control" type="text" [(ngModel)]="novoCarro.nome"/>
+    </div>
+
+    <div class="mb-3">
+        <span class="form-label">Ano:</span>
+        <input class="form-control" type="number" [(ngModel)]="novoCarro.ano" />
+    </div>
+</div>
+<div class="d-grid gap-2 col-2 mx-auto">
+    <button (click)="salvar()" class="btn btn-success">Salvar</button>
+</div>
